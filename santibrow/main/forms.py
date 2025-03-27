@@ -10,7 +10,7 @@ class ContactForm(forms.Form):
 		option5 = "option5", "option5"
 		
 	name = forms.CharField(max_length=100)
-	subject = forms.ChoiceField(choice=SubjectOptions, max_length=25, initial="Selsect")
+	subject = forms.ChoiceField(choices=SubjectOptions,initial=SubjectOptions.select)
 	email = forms.EmailField()
 	tel = forms.CharField(max_length=20)
 	message = forms.CharField(widget=forms.Textarea)
