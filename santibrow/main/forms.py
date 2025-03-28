@@ -1,5 +1,7 @@
 from django import forms
 from django.db import models
+
+
 class ContactForm(forms.Form):
 	class SubjectOptions(models.TextChoices):
 		select = "Select", "Select"
@@ -12,5 +14,10 @@ class ContactForm(forms.Form):
 	name = forms.CharField(max_length=100)
 	subject = forms.ChoiceField(choices=SubjectOptions,initial=SubjectOptions.select)
 	email = forms.EmailField()
-	tel = forms.CharField(max_length=20)
+	tel = forms.RegexField(
+		regex=r'^\d+$',
+		max_length=20,
+		error_messages={'invalid': 'Enter a valid phone number.'},
+		label="Phone Number"
+	)
 	message = forms.CharField(widget=forms.Textarea)
