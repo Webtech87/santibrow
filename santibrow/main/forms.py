@@ -21,3 +21,4 @@ class ContactForm(forms.Form):
 		label="Phone Number"
 	)
 	message = forms.CharField(widget=forms.Textarea)
+	accept_terms = forms.BooleanField(required=False)
