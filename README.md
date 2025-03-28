@@ -32,3 +32,4 @@ We recommend to storage all variables in  **_settings.py_**, and after coll a va
 
 # Validation Form
 In form, I used default validation, but field for **_tel_** has a new "custom_validation" by **_regex_**.
+Important, a check_box accept_terms
